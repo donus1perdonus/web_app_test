@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  web:
+    build: ./nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - app
+      - db
+    volumes:
+      - ./frontend:/usr/share/nginx/html
+
+  app:
+    build: ./app
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./app:/app
+    environment:
+      - DATABASE_URL=postgresql://your_user_name:your_password@db:5432/your_database_name
+    depends_on:
+      - db
+
+  db:
+    build: ./db
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      - POSTGRES_DB=test_db
+      - POSTGRES_USER=test_user1
+      - POSTGRES_PASSWORD=test
+    ports:
+      - "5432:5432"
+
+volumes:
+  db_data:
