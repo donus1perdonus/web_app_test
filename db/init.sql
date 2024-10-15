@@ -1,5 +1,3 @@
-CREATE USER test_user1 WITH PASSWORD 'test';
-CREATE DATABASE test_db;
 GRANT ALL PRIVILEGES ON DATABASE test_db TO test_user1;
 
 \c test_db;
