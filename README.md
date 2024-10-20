@@ -1,3 +1,8 @@
-# web_app_test
+# Тестовое веб-приложение на Docker
 
-СБОРКА ТЕСТОВОГО ВЕБ ПРИЛОЖЕНИЯ НА DOCKER-COMPOSE
+Стек технологий: 
+
+Docker-compose
+Nginx
+Flask
+PostgreSQL
